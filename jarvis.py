@@ -14,3 +14,5 @@ import pyautogui
 import pyaudio
 import imaplib
 import webbrowser
+from termcolor import cprint
+import vlc_ctrl
