@@ -1,2 +1,2 @@
 # Jarvis-Speech-Recognition
-My version of Jarvis, a digital assistant that uses speech recognition and text to speech as well as a lot of other APIs
+Digital Assistant that uses speech recognition (Google Voice Recognition) and text to speech (GTTS) as well as many other APIs to control my Macbook
