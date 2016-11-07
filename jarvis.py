@@ -27,3 +27,4 @@ def speak(audioString):
     print(audioString)
     tts = gTTS(text=audioString, lang='en')
     tts.save("audio.mp3")
+    subprocess.call(['xdg-open', 'audio.mp3'])
