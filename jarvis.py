@@ -35,3 +35,5 @@ def greeting():
     subprocess.call(['xdg-open', 'greeting.mp3'])
 
 def login():
+    greeting()
+    voice()
