@@ -22,3 +22,6 @@ warnings.filterwarnings("ignore")
 
 #API Keys
 owm = pyowm.OWM('98f7511d86476597089039309a13a7a1') #API Key for weather data
+
+def speak(audioString):
+    print(audioString)
