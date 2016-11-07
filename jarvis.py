@@ -10,3 +10,5 @@ import json
 import datetime
 from itertools import islice
 import warnings
+import pyautogui
+import pyaudio
