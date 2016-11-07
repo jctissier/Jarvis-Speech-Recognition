@@ -16,3 +16,6 @@ import imaplib
 import webbrowser
 from termcolor import cprint
 import vlc_ctrl
+
+#Globals
+warnings.filterwarnings("ignore")
