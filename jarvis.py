@@ -8,3 +8,5 @@ import subprocess
 import pyowm
 import json
 import datetime
+from itertools import islice
+import warnings
