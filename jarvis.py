@@ -4,3 +4,5 @@ import time
 import webbrowser
 import os
 from gtts import gTTS
+import subprocess
+import pyowm
