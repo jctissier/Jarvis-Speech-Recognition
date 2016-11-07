@@ -31,3 +31,5 @@ def speak(audioString):
     
 def greeting():
     tts = gTTS(text="Hey JC, I'm listening", lang='en')
+    tts.save("greeting.mp3")
+    subprocess.call(['xdg-open', 'greeting.mp3'])
