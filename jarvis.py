@@ -46,3 +46,6 @@ try:
             r.adjust_for_ambient_noise(source)
             print("I'm listening...")
             audio = r.listen(source)
+    speech = r.recognize_google(audio)
+    print("You said:   " + r.recognize_google(audio))
+        
