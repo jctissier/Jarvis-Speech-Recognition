@@ -48,4 +48,7 @@ try:
             audio = r.listen(source)
     speech = r.recognize_google(audio)
     print("You said:   " + r.recognize_google(audio))
+    speech_search = ['google', 'directions', 'youtube']
+    speech = speech.lower().split(" ")
+    print(speech)
         
