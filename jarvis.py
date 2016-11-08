@@ -45,3 +45,4 @@ try:
     with sr.Microphone() as source:
             r.adjust_for_ambient_noise(source)
             print("I'm listening...")
+            audio = r.listen(source)
