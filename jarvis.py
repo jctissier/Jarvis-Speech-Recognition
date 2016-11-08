@@ -41,3 +41,5 @@ def login():
 def voice():
 try:
     # obtain audio from the microphone
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
