@@ -37,3 +37,7 @@ def greeting():
 def login():
     greeting()
     voice()
+
+def voice():
+try:
+    # obtain audio from the microphone
