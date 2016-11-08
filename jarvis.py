@@ -54,4 +54,6 @@ try:
     
     #Gets web searches
     if speech[0] in speech_search:
+        searching(speech)
+        voice()
         
