@@ -51,4 +51,7 @@ try:
     speech_search = ['google', 'directions', 'youtube']
     speech = speech.lower().split(" ")
     print(speech)
+    
+    #Gets web searches
+    if speech[0] in speech_search:
         
