@@ -62,4 +62,6 @@ try:
         voice()
     #Control messaging apps
     elif "send" in speech:
+        messaging_app(speech)
+        voice()
         
