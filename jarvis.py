@@ -60,4 +60,6 @@ try:
     elif "script" and "run" in speech:
         scripts(speech)
         voice()
+    #Control messaging apps
+    elif "send" in speech:
         
