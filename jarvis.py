@@ -70,4 +70,6 @@ try:
         voice()
     #cast media to TV
     elif speech[0] == "cast":
+        google_cast(speech)
+        voice()
         
