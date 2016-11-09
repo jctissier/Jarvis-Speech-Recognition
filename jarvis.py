@@ -66,4 +66,6 @@ try:
         voice()
     # close applications
     elif 'set' in speech:
+        set_calendar(speech)
+        voice()
         
