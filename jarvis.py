@@ -72,4 +72,6 @@ try:
     elif speech[0] == "cast":
         google_cast(speech)
         voice()
+    #close applications
+    elif 'close' in speech:
         
