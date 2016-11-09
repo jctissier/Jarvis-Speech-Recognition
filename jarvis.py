@@ -64,4 +64,6 @@ try:
     elif "send" in speech:
         messaging_app(speech)
         voice()
+    # close applications
+    elif 'set' in speech:
         
