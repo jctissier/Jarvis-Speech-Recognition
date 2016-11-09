@@ -58,4 +58,6 @@ try:
         voice()
     #Runs my scripts
     elif "script" and "run" in speech:
+        scripts(speech)
+        voice()
         
