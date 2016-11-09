@@ -68,4 +68,6 @@ try:
     elif 'set' in speech:
         set_calendar(speech)
         voice()
+    #cast media to TV
+    elif speech[0] == "cast":
         
