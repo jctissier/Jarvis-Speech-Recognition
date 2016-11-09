@@ -74,4 +74,6 @@ try:
         voice()
     #close applications
     elif 'close' in speech:
+        close_apps(speech)
+        voice()
         
