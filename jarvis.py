@@ -82,3 +82,5 @@ try:
         voice()
     #Mac controls
     elif 'mac' in speech:
+        control_mac(speech)
+        voice()
