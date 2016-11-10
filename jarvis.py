@@ -88,3 +88,5 @@ try:
     elif 'time' in speech:
         speak(datetime.datetime.now().strftime("%I:%M %p"))
         voice()
+    #provides date information
+    elif 'date' in speech:
