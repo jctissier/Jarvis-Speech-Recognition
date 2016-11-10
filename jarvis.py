@@ -76,4 +76,7 @@ try:
     elif 'close' in speech:
         close_apps(speech)
         voice()
+    #open applications
+    elif 'open' in speech:
+        open_apps(speech)
         
