@@ -90,3 +90,5 @@ try:
         voice()
     #provides date information
     elif 'date' in speech:
+        date(speech)
+        voice()
