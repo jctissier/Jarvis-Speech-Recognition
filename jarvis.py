@@ -80,4 +80,5 @@ try:
     elif 'open' in speech:
         open_apps(speech)
         voice()
-        
+    #Mac controls
+    elif 'mac' in speech:
