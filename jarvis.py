@@ -86,3 +86,5 @@ try:
         voice()
     #Current time
     elif 'time' in speech:
+        speak(datetime.datetime.now().strftime("%I:%M %p"))
+        voice()
