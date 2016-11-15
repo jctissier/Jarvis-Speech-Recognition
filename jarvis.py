@@ -92,3 +92,5 @@ try:
     elif 'date' in speech:
         date(speech)
         voice()
+    #Gets weather data
+    elif 'weather' in speech:
