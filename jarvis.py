@@ -94,3 +94,5 @@ try:
         voice()
     #Gets weather data
     elif 'weather' in speech:
+        choose_weather(speech)
+        voice()
