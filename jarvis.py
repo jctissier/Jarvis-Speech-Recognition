@@ -98,3 +98,5 @@ try:
         voice()
     #Gets temperature data
     elif 'temperature' in speech:
+        choose_weather(speech)
+        voice()
