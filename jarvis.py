@@ -102,3 +102,5 @@ try:
         voice()
     #Sunrise time
     elif 'sunrise' in speech:
+        choose_weather(speech)
+        voice()
