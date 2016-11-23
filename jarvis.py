@@ -108,3 +108,7 @@ try:
     elif 'sunset' in speech:
         choose_weather(speech)
         voice()
+     #pause & restart program
+    elif 'jarvis' in speech:
+        echo(speech)
+        voice()
