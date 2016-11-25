@@ -34,6 +34,7 @@ def greeting():
     tts.save("greeting.mp3")
     subprocess.call(['xdg-open', 'greeting.mp3'])
 
+# Use at the beginning
 def login():
     greeting()
     voice()
