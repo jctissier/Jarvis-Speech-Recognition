@@ -121,3 +121,4 @@ try:
     elif "mail" or "email" in speech:
         check_mail(speech)
         voice()
+    else:
