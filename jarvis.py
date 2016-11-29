@@ -122,4 +122,4 @@ try:
         check_mail(speech)
         voice()
     else:
-        voic
+        voice()
