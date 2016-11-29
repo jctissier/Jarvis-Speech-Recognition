@@ -113,3 +113,7 @@ try:
     elif 'jarvis' in speech:
         echo(speech)
         voice()
+    #provides a cheatsheet for all the voice commands
+    elif 'help' in speech:
+        cheatsheet()
+        voice()
