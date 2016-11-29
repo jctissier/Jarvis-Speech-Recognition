@@ -117,3 +117,7 @@ try:
     elif 'help' in speech:
         cheatsheet()
         voice()
+     #checks if any new emails have arrived in my inbox
+    elif "mail" or "email" in speech:
+        check_mail(speech)
+        voice()
