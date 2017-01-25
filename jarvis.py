@@ -264,3 +264,243 @@ def laptop_cast(media):
     time.sleep(0.3)
     pyautogui.press('esc')
     pyautogui.hotkey('command', 'tab')
+
+'''Controlling Messaging Apps'''
+def messaging_app(speech):
+    try:
+        if "messenger" in speech:
+            if speech[1] == "new":
+                receiver = speech[4]
+                message = " ".join(speech[5:])
+                messenger_automator(receiver, message)
+            else:
+                message = " ".join(speech[2:])
+                messenger_same_convo(message)
+        elif "whatsapp" in speech:
+            receiver = speech[3]
+            message = " ".join(speech[4:])
+            whatsapp(receiver, message)
+    except IndexError:
+        print("Index Error just occured, repeat what you were saying..")
+
+#New Messenger = send new messenger to [recipient] [message_string]
+def messenger_automator(receiver,message):
+    #Getting Messenger to new person
+    subprocess.call(["/usr/bin/open", "/Applications/Messenger.app"])
+    time.sleep(1.5)
+    pyautogui.press('tab',presses=1)
+    pyautogui.typewrite(receiver, interval=0.2)
+    pyautogui.press('down', presses=1)
+    pyautogui.press('enter',presses=1)
+    time.sleep(1)
+    pyautogui.typewrite(message, interval=0.02)
+    time.sleep(0.5)
+    pyautogui.hotkey('command', 'tab')
+    # pyautogui.press('enter')
+    speak("Message has been sent to " + receiver)
+
+#Same Messenger = send messenger [message_string]
+def messenger_same_convo(message):
+    subprocess.call(["/usr/bin/open", "/Applications/Messenger.app"])
+    time.sleep(1)
+    pyautogui.typewrite(message, interval=0.02)
+    time.sleep(0.5)
+    pyautogui.hotkey('command', 'tab')
+    # pyautogui.press('enter')
+
+# Message on Whatsapp = send whatsapp to [receiver] [message_string]
+def whatsapp(receiver, message):
+    subprocess.call(["/usr/bin/open", "/Applications/Whatsapp.app"])
+    time.sleep(1.6)
+    pyautogui.press('tab',presses=2,interval=0.5)
+    pyautogui.typewrite(receiver, interval=0.2)
+    time.sleep(1)
+    pyautogui.press('enter', presses=1)
+    time.sleep(1)
+    pyautogui.typewrite(message, interval=0.02)
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.press('tab',presses=1)
+    time.sleep(0.4)
+    pyautogui.hotkey('command' , 'tab')
+    speak("Whatsapp has been sent to " + receiver)
+
+'''Control Fantastical and set calendar events'''
+#set calendar [entry_name] at [location] on the [date] at [time]
+def set_calendar(speech):
+    if "calendar" in speech:
+        pyautogui.hotkey('ctrl', 'c')
+        time.sleep(0.2)
+        pyautogui.typewrite(" ".join(speech[2:]), interval=0.03)
+        pyautogui.press('enter')
+        time.sleep(0.7)
+        pyautogui.hotkey('ctrl', 'c')
+        speak("I have created your calendar event")
+    else:
+        # Creating a new reminder
+        # set reminder [message_string]
+        subprocess.call(["/usr/bin/open", "/Applications/Reminders.app"])
+        time.sleep(1)
+        pyautogui.hotkey('command', 'n')
+        time.sleep(0.2)
+        pyautogui.typewrite(" ".join(speech[2:]), interval=0.02)
+        time.sleep(0.1)
+        pyautogui.press('enter')
+        pyautogui.hotkey('command', 'tab')
+        speak("I have created a new reminder")
+
+'''Control Macbook Functions'''
+def control_mac(speech):
+    if "mute" in speech:
+        cmd ="""osascript -e "set volume 0"
+        """
+        os.system(cmd)
+#TODO - add extra functionalities if needed
+
+'''Close Mac apps'''
+def close_apps(speech):
+#Closing mac apps with applescript
+    print("Chosing method...")
+    if "itunes" in speech:
+        close ="""osascript -e 'quit app "iTunes"'"""
+        os.system(close)
+    elif "skype" in speech:
+        close = """osascript -e 'quit app "Skype"'"""
+        os.system(close)
+    elif "evernote" in speech:
+        close = """osascript -e 'quit app "Evernote"'"""
+        os.system(close)
+    elif "spotify" in speech:
+        close = """osascript -e 'quit app "Spotify"'"""
+        os.system(close)
+    elif "messenger" in speech:
+        close = """osascript -e 'quit app "Messenger"'"""
+        os.system(close)
+    elif "trello" in speech:
+        close = """osascript -e 'quit app "Paws for Trello"'"""
+        os.system(close)
+    elif "chrome" in speech:
+        close = """osascript -e 'quit app "Google Chrome"'"""
+        os.system(close)
+    elif "feedly" in speech:
+        close = """osascript -e 'quit app "Feedly"'"""
+        os.system(close)
+    elif "preview" in speech:
+        close = """osascript -e 'quit app "Preview"'"""
+        os.system(close)
+
+'''Open Mac apps'''
+def open_apps(speech):
+#Opening mac apps
+    if "itunes" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/iTunes.app"])
+    elif "skype" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/Skype.app"])
+    elif "evernote" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/Evernote.app"])
+    elif "spotify" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/Spotify.app"])
+    elif "messenger" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/Messenger.app"])
+    elif "trello" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/Paws for Trello.app"])
+    elif "text" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/TextEdit.app"])
+    elif "feedly" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/feedly.app"])
+    elif "whatsapp" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/WhatsApp.app"])
+    elif "fantastical" in speech:
+        subprocess.call(["/usr/bin/open", "/Applications/Fantastical 2.app"])
+    elif "facebook" in speech:
+        webbrowser.open("https://www.facebook.com/jean.c.tissier")
+    elif "reddit" in speech:
+        webbrowser.open("https://www.reddit.com")
+    elif "livescore" in speech:
+        webbrowser.open("https://www.livescore.com")
+    elif "gmail" in speech:
+        webbrowser.open("https://www.gmail.com")
+
+'''Weather API data'''
+def sunrise(data):
+    # sunrise time
+    print("Sunrise: " + datetime.datetime.fromtimestamp(data['sunrise_time']).strftime('%B %d %H:%M'))
+    speak("Sunrise will be at " + datetime.datetime.fromtimestamp(data['sunrise_time']).strftime('%I:%M %p'))
+
+def sunset(data):
+    # sunset time
+    print("Sunset: " + datetime.datetime.fromtimestamp(data['sunset_time']).strftime('%B %d %H:%M'))
+    speak("Sunset will be at " + datetime.datetime.fromtimestamp(data['sunset_time']).strftime('%I:%M %p'))
+
+def weather(speech, data, temp):
+    # includes today, tomorrow and forecast
+    weather_status = data['detailed_status'].strip("''")
+
+    if "weather" and "today" in speech:
+        # Today's weather
+        speak("Today's weather: " + weather_status)
+        speak("Temperature will average at " + str(round(temp['temp'])) + " Celcius")
+
+    elif "weather" and "forecast" in speech:
+        # Get Forecast for the next week
+        forecast_week = owm.daily_forecast("Vancouver,ca", limit=7)
+        f = forecast_week.get_forecast()
+        print("\nForecast for the next 7 days: ")
+        for weather in islice(f, 1, None):
+            unix_time = weather.get_reference_time('unix')
+            print("Date: " + datetime.datetime.fromtimestamp(unix_time).strftime('%B-%d') +
+                  "   Weather: " + weather.get_detailed_status())
+
+    elif "weather" and "tomorrow" in speech:
+        # Tomorrow's weather
+        forecast_week = owm.daily_forecast("Vancouver,ca", limit=2)
+        f = forecast_week.get_forecast()
+        print("\nTomorrow's Weather: ")
+        for weather in f:
+            unix_time = weather.get_reference_time('unix')
+            tomorrow_weather = (datetime.datetime.fromtimestamp(unix_time).strftime('%B-%d') +
+                                " " + weather.get_detailed_status())
+        speak(tomorrow_weather)
+
+def temperature(temp):
+    #TODO - add temp for today and tomorrow
+    # Temperature status
+    speak("Temperature will average at " + str(round(temp['temp'])) + " Celcius")
+    speak("Max Temperature will be " + str(round(temp['temp_max'])) + " Celcius")
+
+def choose_weather(speech):
+    # weather report for Vancouver
+    observation = owm.weather_at_place('Vancouver,ca')
+    w = observation.get_weather()
+    data = json.loads(w.to_JSON())
+    temperature_data = w.get_temperature(unit='celsius')
+
+    # pick the right method
+    if "weather" in speech:
+        weather(speech, data, temperature_data)
+    elif "temperature" in speech:
+        temperature(temperature_data)
+    elif "sunrise" in speech:
+        sunrise(data)
+    elif "sunset" in speech:
+        sunset(data)
+
+'''Provides dates information'''
+def date(speech):
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    dayNumber = datetime.datetime.today().weekday()
+    if "today" in speech:
+        speak(days[dayNumber])
+        speak(datetime.datetime.now().strftime("%B %d"))
+    if "tomorrow" in speech:
+        dayNumber = dayNumber + 1
+        if dayNumber == 7:
+            speak("Monday")
+            speak((datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%B %d"))
+        else:
+            speak(days[dayNumber])
+            speak((datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%B %d"))
+
+# Run these methods
+if __name__ == "__main__":
+    run = login()
