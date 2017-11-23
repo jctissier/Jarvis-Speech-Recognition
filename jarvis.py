@@ -200,7 +200,7 @@ def scripts(speech):
 '''Check if any new emails'''
 def check_mail(speech):
     obj = imaplib.IMAP4_SSL('imap.gmail.com', '993')
-    obj.login('jeanclaude.tca@gmail.com', 'jc2549333')
+    obj.login('email@gmail.com', 'password')
     obj.select()
     obj.search(None, 'UnSeen')
     unseen_message = len(obj.search(None, 'UnSeen')[1][0].split()) - 5351
